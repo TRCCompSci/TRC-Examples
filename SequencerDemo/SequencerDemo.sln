@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SequencerDemo", "SequencerDemo\SequencerDemo.csproj", "{6F56F0D4-A4BE-4740-9E7D-B965A65E6D72}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F56F0D4-A4BE-4740-9E7D-B965A65E6D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F56F0D4-A4BE-4740-9E7D-B965A65E6D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F56F0D4-A4BE-4740-9E7D-B965A65E6D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F56F0D4-A4BE-4740-9E7D-B965A65E6D72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42920252-6317-41FF-98C8-FF1CA146E508}
+	EndGlobalSection
+EndGlobal
