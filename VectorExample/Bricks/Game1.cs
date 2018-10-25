@@ -19,13 +19,25 @@ namespace Bricks
 
         Texture2D imgBall;
 
+        //NEEDED TO CREATE SECOND BALL
+        //Texture2D otherBall;
+        //Vector2 otherPosition;
+
         Vector2 ballPosition;
         Vector2 ballMovement;
 
         Timer keytime = new Timer();
-        bool key = false;
 
         bool ballInMotion = false;
+
+        public double DotProduct(Vector2 vector1, Vector2 vector2)
+        {
+            double value = 0;
+
+            // perform your dot product calculation here
+
+            return value;
+        }
 
         public double Magnitude(Vector2 vector)
         {
@@ -94,6 +106,12 @@ namespace Bricks
 
             // TODO: use this.Content to load your game content here
             imgBall = Content.Load<Texture2D>("Ball");
+
+            //NEEDED TO CREATE SECOND BALL
+            //otherBall = Content.Load<Texture2D>("Ball");
+            //otherPosition = new Vector2((graphics.PreferredBackBufferWidth / 2) - (otherBall.Width / 2),
+            //        (graphics.PreferredBackBufferHeight / 2) - (otherBall.Height / 2));
+
             font = Content.Load<SpriteFont>("Italic");
             keytime.Enabled = false;
         }
@@ -194,10 +212,20 @@ namespace Bricks
             // TODO: Add your drawing code here
             spriteBatch.Begin();
             spriteBatch.Draw(imgBall, ballPosition);
+
+            //NEEDED TO CREATE SECOND BALL
+            //spriteBatch.Draw(otherBall, otherPosition);
+
             if (ballInMotion)
             {
                 spriteBatch.DrawString(font, "Magnitude: " + Magnitude(ballMovement), new Vector2(5, 0), Color.Black);
-                spriteBatch.DrawString(font, "Ball Vector: " + ballMovement, new Vector2(5, 100), Color.Black);
+                spriteBatch.DrawString(font, "Ball Vector: " + ballMovement, new Vector2(5, 50), Color.Black);
+
+                //Once you have added the second ball you can calculate the vector between the two balls
+                //You can then uses this and the movement vector to calculate dot product. 
+                //The line below will run the method to calculate and then draw the value to the screen
+                //spriteBatch.DrawString(font, "Dot: " + DotProduct(ballMovement, ballPosition - otherPosition), new Vector2(5,100),Color.Black);
+
             }
             else
             {
