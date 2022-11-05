@@ -46,7 +46,35 @@ namespace ShortestPath
             //set distance to start node as 0
             distance[start]=0;
 
-            // finish the coding from the spreadsheet
+            /* finish the coding from the spreadsheet
+                function Dijkstra(start, dest)
+ 	
+                  u= start
+                  dist[u] = 0                  
+
+                  for u  ← 0 to 4
+                               Visted[u]  T
+
+                               for v  ← 0 to 4  
+                            if adjMatrix[u,v] <> inf then
+                           alt ← Distance[u] + AdjMatrix(u, v)
+                                       if alt < Distance[v] then               
+                                                 Distance[v] ← alt 
+                                                 Previous[v] ← u
+                           end if
+                    end if
+                                end for
+
+                   end for
+
+                  path dest
+                  while path< > start
+                           path Previous[Path]
+                  end while
+
+                end function
+                */
+
         }      
     }
 }
