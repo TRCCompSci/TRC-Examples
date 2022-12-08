@@ -10,16 +10,16 @@ namespace FSM
     {
         enum State
         {
+            S0,
             S1,
             S2,
-            S3,
             Error
         }
         static void Main(string[] args)
         {
             // set the starting state
             State machine = State.S1;
-            State accept = State.S3;
+            State accept = State.S2;
             bool control = true;
             while (control)
             {
@@ -30,16 +30,16 @@ namespace FSM
 
                 switch (input)
                 {
-                    case "1":
-                        if (machine == State.S1)
+                    case "a":
+                        if (machine == State.S0)
                         {
-                            machine = State.S1;
+                            machine = State.S2;
+                        }
+                        else if (machine == State.S1)
+                        {
+                            machine = State.S0;
                         }
                         else if (machine == State.S2)
-                        {
-                            machine = State.S3;
-                        }
-                        else if (machine == State.S3)
                         {
                             machine = State.Error;
                             control = false;
@@ -50,13 +50,20 @@ namespace FSM
                             Console.WriteLine("You are now on the accept state");
                         }
                         break;
-                    case "0":
+                    case "b":
 
                         break;
+
+                    default:
+                        Console.WriteLine("Value not valid");
+                        control = false;
+                        break;
+                
                 }
 
 
             }
+            Console.ReadLine();
         }
     }
 }
