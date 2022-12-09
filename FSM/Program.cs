@@ -18,7 +18,7 @@ namespace FSM
         static void Main(string[] args)
         {
             // set the starting state
-            State machine = State.S1;
+            State machine = State.S0;
             State accept = State.S2;
             bool control = true;
             while (control)
