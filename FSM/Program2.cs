@@ -43,20 +43,20 @@ namespace FSM
                     case "9":
                         if (machine == State.S1)
                         {
-                            machine = State.S2;
+                            //machine = 
                         }
                         else if (machine == State.S2)
                         {
-                            machine = State.S2;
+                            //machine = 
                         }
                         else if (machine == State.S3)
                         {
-                            machine = State.S3;
+                            //machine = 
                         }
                         break;
                     case "-":
                     case "+":
-                        // ADD YOUR LOGIC HERE
+                        // Add your logic here for handling the + & -
                         break
                     default:
                         Console.WriteLine("Value not valid");
