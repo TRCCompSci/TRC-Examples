@@ -45,10 +45,6 @@ namespace FSM
                             control = false;
                         }
 
-                        if (machine==accept)
-                        {
-                            Console.WriteLine("You are now on the accept state");
-                        }
                         break;
                     case "b":
 
@@ -60,7 +56,10 @@ namespace FSM
                         break;
                 
                 }
-
+                if (machine==accept)
+                {
+                     Console.WriteLine("You are now on the accept state");
+                }
 
             }
             Console.ReadLine();
