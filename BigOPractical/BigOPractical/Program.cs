@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +28,7 @@ namespace BigOPractical
                 Console.WriteLine();
                 Console.Write("Please make a selection: ");
                 choice = Convert.ToInt32(Console.ReadLine());
-                switch (choice) 
+                switch (choice)
                 {
                     case 1:
                         constantC();
@@ -76,12 +76,12 @@ namespace BigOPractical
             //this is the bit which is tested
 
             // YOUR CODE GOES HERE
-            // this should be a single calculation
+            // this should be a single calculation to calculate the some of natural numbers from 0 to value
 
             //stop the stopwatch and show the result
             stopwatch.Stop();
             elapsed_time = stopwatch.ElapsedTicks;
-            
+
             Console.WriteLine("this took " + elapsed_time + " ticks.");
             Console.WriteLine("\nPress enter to return to the menu!!");
             Console.ReadLine();
@@ -92,9 +92,21 @@ namespace BigOPractical
             Console.WriteLine("\nLets test Polynomial complexity ");
 
             //this bit is for the input required to run the test
-            Console.Write("\nPlease enter an integer: ");
+            Console.Write("\nPlease enter an integer for the number of random numbers: ");
             int value = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
+
+            // setup for an array to bubble sort
+            int[] NumList = new int[value];
+            Random RanNum = new Random();
+            for (int i = 0; i < value; i++)
+            {
+                NumList[i] = RanNum.Next(1, value * 2);
+                Console.WriteLine(NumList[i]);
+            }
+
+            Console.Write("Your list will now be sorted.");
+
+            //ready for the test
             Console.WriteLine("press enter to run the test!!");
             Console.ReadLine();
 
@@ -103,16 +115,20 @@ namespace BigOPractical
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            //this is the bit which is tested
-
             // YOUR CODE GOES HERE
-            //a bubble sort is of polynomial complexity (ie n^2)
+            // a bubble sort is of polynomial complexity (ie n^2)
+            // add or write a bubble sort here
 
             //stop the stopwatch and show the result
             stopwatch.Stop();
             elapsed_time = stopwatch.ElapsedTicks;
 
             // output messages
+            for (int i = 0; i < value; i++)
+            {
+                Console.WriteLine(NumList[i]);
+            }
+
             Console.WriteLine("this took " + elapsed_time + " ticks.");
             Console.WriteLine("\nPress enter to return to the menu!!");
             Console.ReadLine();
@@ -123,9 +139,20 @@ namespace BigOPractical
             Console.WriteLine("\nLets test Linearithmic complexity ");
 
             //this bit is for the input required to run the test
-            Console.Write("\nPlease enter an integer: ");
+            Console.Write("\nPlease enter an integer for the number of random numbers: ");
             int value = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
+
+            // setup for an array to comb sort
+            int[] NumList = new int[value];
+            Random RanNum = new Random();
+            for (int i = 0; i < value; i++)
+            {
+                NumList[i] = RanNum.Next(1, value * 2);
+                Console.WriteLine(NumList[i]);
+            }
+
+            Console.Write("Your list will now be sorted.");
+
             Console.WriteLine("press enter to run the test!!");
             Console.ReadLine();
 
@@ -134,16 +161,20 @@ namespace BigOPractical
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            //this is the bit which is tested
-
             // YOUR CODE GOES HERE
-            //a Comb sort is a linearithmic algorithm
+            // a Comb sort is a linearithmic algorithm
+            // add or write a comb sort here
 
             //stop the stopwatch and show the result
             stopwatch.Stop();
             elapsed_time = stopwatch.ElapsedTicks;
 
             // output messages
+            for (int i = 0; i < value; i++)
+            {
+                Console.WriteLine(NumList[i]);
+            }
+
             Console.WriteLine("this took " + elapsed_time + " ticks.");
             Console.WriteLine("\nPress enter to return to the menu!!");
             Console.ReadLine();
@@ -154,21 +185,41 @@ namespace BigOPractical
             Console.WriteLine("\nLets test Linear complexity ");
 
             //this bit is for the input required to run the test
-            Console.Write("\nPlease enter an integer: ");
+            Console.Write("\nPlease enter an integer for the number of random numbers: ");
             int value = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine();
+
+            Console.WriteLine("choose one of the following random numbers to search for");
+            Console.ReadLine();
+
+            // setup for an array to linear search
+            int[] NumList = new int[value];
+            Random RanNum = new Random();
+            for (int i = 0; i < value; i++)
+            {
+                NumList[i] = RanNum.Next(1, value * 2);
+                Console.WriteLine(NumList[i]);
+            }
+
+            //get the number to search for
+            Console.Write("please enter a number to search for: ");
+            int search = Convert.ToInt32(Console.ReadLine());
+
+            //ready for the test
             Console.WriteLine("press enter to run the test!!");
             Console.ReadLine();
+            Array.Sort(NumList); //sort array - not really needed for linear search
 
             // set up the stopwatch
             long elapsed_time;
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            //this is the bit which is tested
 
             // YOUR CODE GOES HERE
             // a linear search is of linear time complexity
+            // create a for loop to start at 0 and finish at value-1
+            // check if numlist[i] is equal to search
+            // output if it was found and at which position
 
             //stop the stopwatch and show the result
             stopwatch.Stop();
@@ -200,6 +251,7 @@ namespace BigOPractical
 
             // YOUR CODE GOES HERE
             // your towers of hanoi program is of exponential complexity
+            // look up the algorithm in C# and copy here
 
             //stop the stopwatch and show the result
             stopwatch.Stop();
@@ -226,7 +278,7 @@ namespace BigOPractical
             Random RanNum = new Random();
             for (int i = 0; i < value; i++)
             {
-                NumList[i] = RanNum.Next(1, value*2);
+                NumList[i] = RanNum.Next(1, value * 2);
                 Console.WriteLine(NumList[i]);
             }
 
@@ -245,7 +297,7 @@ namespace BigOPractical
             stopwatch.Start();
 
             //this is the bit which is tested
-            int pos=BinarySearch(NumList, search, 0, value); //calls the method below to perform the binary search
+            int pos = BinarySearch(NumList, search, 0, value); //calls the method below to perform the binary search
 
             //stop the stopwatch and show the result
             stopwatch.Stop();
@@ -303,7 +355,7 @@ namespace BigOPractical
             {
                 Console.WriteLine(val);
             }
-            permute("",value); //runs the recursive method below
+            permute("", value); //runs the recursive method below
 
             //stop the stopwatch and show the result
             stopwatch.Stop();
