@@ -288,7 +288,7 @@ namespace BigOPractical
             char startPeg = 'A'; // start tower in output
             char endPeg = 'C'; // end tower in output
             char tempPeg = 'B'; // temporary tower in output
-            int totalDisks = 3; // number of disks
+            int totalDisks = value; // number of disks
 
             // set up the stopwatch
             long elapsed_time;
