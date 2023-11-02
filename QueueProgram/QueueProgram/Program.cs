@@ -13,7 +13,7 @@ namespace QueueProgram
 			// declare variables
 			const int MaxQueueSize = 10;
 			int QueueSize=0;
-			int QueueStart=0, QueueEnd = 0;
+			int QueueStart=0, QueueEnd = -1;
 			string[] Queue = new string[MaxQueueSize];
 			string MenuItem;  
 			// program loop
@@ -31,7 +31,7 @@ namespace QueueProgram
 					RemoveFromQueue (ref Queue, ref QueueStart, ref QueueEnd, MaxQueueSize, QueueSize);
 					break;
 				case "3":
-					PrintQueue (ref Queue, QueueSize);
+					PrintQueue (ref Queue, MaxQueueSize);
 					break;
 				case "4":
 					break;
