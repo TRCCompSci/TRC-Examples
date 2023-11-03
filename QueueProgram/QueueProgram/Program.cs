@@ -55,7 +55,7 @@ namespace QueueProgram
 		{
 			// add your code here
 			// you will need to know and understand this algorithm
-			// use TheStack[StackPointer]=null; to remove the value
+			// use Queue[QueueFront]=null; to remove the value
 		}
 
 		public static void PrintQueue(ref string[] TheQueue, int QueueSize)
