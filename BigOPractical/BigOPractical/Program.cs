@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,7 @@ using System.Diagnostics;
 
 namespace BigOPractical
 {
-    class Program
+    class CompletedProgram
     {
         static void Main(string[] args)
         {
@@ -17,12 +17,12 @@ namespace BigOPractical
             {
                 Console.WriteLine("Welcome to the Big O testing program");
                 Console.WriteLine();
-                Console.WriteLine("1: Constant - O(1)");
-                Console.WriteLine("2: Logarithmic - O(log n) **pre coded**");
+                Console.WriteLine("1: Constant - O(1) **pre coded**");
+                Console.WriteLine("2: Logarithmic - O(log n)");
                 Console.WriteLine("3: Linear - O(n)");
-                Console.WriteLine("4: Linearithmic - O(n log n)");
+                Console.WriteLine("4: Linearithmic - O(n log n) **pre coded**");
                 Console.WriteLine("5: Polynomial - O(n^2) or O(n^3)");
-                Console.WriteLine("6: Exponential - O(k^n)");
+                Console.WriteLine("6: Exponential - O(k^n) **pre coded**");
                 Console.WriteLine("7: Factorial - O(n!) **pre coded**");
                 Console.WriteLine("8: Quit");
                 Console.WriteLine();
@@ -68,6 +68,7 @@ namespace BigOPractical
             Console.WriteLine("press enter to run the test!!");
             Console.ReadLine();
 
+            int answer = 0;
             // set up the stopwatch
             long elapsed_time;
             Stopwatch stopwatch = new Stopwatch();
@@ -77,11 +78,13 @@ namespace BigOPractical
 
             // YOUR CODE GOES HERE
             // this should be a single calculation to calculate the some of natural numbers from 0 to value
+            answer = value * (value + 1) / 2;
 
             //stop the stopwatch and show the result
             stopwatch.Stop();
             elapsed_time = stopwatch.ElapsedTicks;
 
+            Console.WriteLine(answer);
             Console.WriteLine("this took " + elapsed_time + " ticks.");
             Console.WriteLine("\nPress enter to return to the menu!!");
             Console.ReadLine();
@@ -110,9 +113,13 @@ namespace BigOPractical
             Console.WriteLine("press enter to run the test!!");
             Console.ReadLine();
 
+           
             // set up the stopwatch
             long elapsed_time;
             Stopwatch stopwatch = new Stopwatch();
+
+            int[] a = NumList;
+
             stopwatch.Start();
 
             // YOUR CODE GOES HERE
@@ -126,7 +133,7 @@ namespace BigOPractical
             // output messages
             for (int i = 0; i < value; i++)
             {
-                Console.WriteLine(NumList[i]);
+                Console.WriteLine(a[i]);
             }
 
             Console.WriteLine("this took " + elapsed_time + " ticks.");
@@ -156,14 +163,40 @@ namespace BigOPractical
             Console.WriteLine("press enter to run the test!!");
             Console.ReadLine();
 
+            int[] data = NumList;
             // set up the stopwatch
             long elapsed_time;
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            // YOUR CODE GOES HERE
-            // a Comb sort is a linearithmic algorithm
-            // add or write a comb sort here
+            double gap = data.Length;
+            bool swaps = true;
+
+            while (gap > 1 || swaps)
+            {
+                gap /= 1.247330950103979;
+
+                if (gap < 1)
+                    gap = 1;
+
+                int i = 0;
+                swaps = false;
+
+                while (i + gap < data.Length)
+                {
+                    int igap = i + (int)gap;
+
+                    if (data[i] > data[igap])
+                    {
+                        int temp = data[i];
+                        data[i] = data[igap];
+                        data[igap] = temp;
+                        swaps = true;
+                    }
+
+                    ++i;
+                }
+            }
 
             //stop the stopwatch and show the result
             stopwatch.Stop();
@@ -172,7 +205,7 @@ namespace BigOPractical
             // output messages
             for (int i = 0; i < value; i++)
             {
-                Console.WriteLine(NumList[i]);
+                Console.WriteLine(data[i]);
             }
 
             Console.WriteLine("this took " + elapsed_time + " ticks.");
@@ -214,7 +247,6 @@ namespace BigOPractical
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-
             // YOUR CODE GOES HERE
             // a linear search is of linear time complexity
             // create a for loop to start at 0 and finish at value-1
@@ -236,11 +268,16 @@ namespace BigOPractical
             Console.WriteLine("\nLets test exponential complexity ");
 
             //this bit is for the input required to run the test
-            Console.Write("\nPlease enter an integer: ");
+            Console.Write("\nPlease enter an integer for the number of disks: ");
             int value = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
             Console.WriteLine("press enter to run the test!!");
             Console.ReadLine();
+
+            char startPeg = 'A'; // start tower in output
+            char endPeg = 'C'; // end tower in output
+            char tempPeg = 'B'; // temporary tower in output
+            int totalDisks = value; // number of disks
 
             // set up the stopwatch
             long elapsed_time;
@@ -249,14 +286,12 @@ namespace BigOPractical
 
             //the exponential code to run
 
-            // YOUR CODE GOES HERE
-            // your towers of hanoi program is of exponential complexity
-            // look up the algorithm in C# and copy here
+            solveTowers(totalDisks, startPeg, endPeg, tempPeg);
 
             //stop the stopwatch and show the result
             stopwatch.Stop();
             elapsed_time = stopwatch.ElapsedTicks;
-            Console.WriteLine("this took" + elapsed_time + " ticks.");
+            Console.WriteLine("this took " + elapsed_time + " ticks.");
             Console.WriteLine();
             Console.WriteLine("\nPress enter to return to the menu!!");
             Console.ReadLine();
@@ -296,8 +331,9 @@ namespace BigOPractical
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
-            //this is the bit which is tested
-            int pos = BinarySearch(NumList, search, 0, value); //calls the method below to perform the binary search
+            // YOUR CODE GOES HERE
+            // a Binary search is of logarithmic time complexity
+            
 
             //stop the stopwatch and show the result
             stopwatch.Stop();
@@ -311,26 +347,7 @@ namespace BigOPractical
             Console.ReadLine();
         }
 
-        public static int BinarySearch(int[] inputArray, int key, int min, int max)
-        {
-            while (min <= max)
-            {
-                int mid = (min + max) / 2;
-                if (key == inputArray[mid])
-                {
-                    return ++mid;
-                }
-                else if (key < inputArray[mid])
-                {
-                    max = mid - 1;
-                }
-                else
-                {
-                    min = mid + 1;
-                }
-            }
-            return -1;
-        }
+
 
         static void factorialC()
         {
@@ -365,6 +382,17 @@ namespace BigOPractical
             Console.WriteLine("this took " + elapsed_time + " ticks.");
             Console.WriteLine("\nPress enter to return to the menu!!");
             Console.ReadLine();
+        }
+
+        private static void solveTowers(int n, char startPeg, char endPeg, char tempPeg)
+        {
+            if (n > 0)
+            {
+                solveTowers(n - 1, startPeg, tempPeg, endPeg);
+                Console.WriteLine("Move disk from " + startPeg + ' ' + endPeg);
+                solveTowers(n - 1, tempPeg, endPeg, startPeg);
+
+            }
         }
 
         static void permute(string prefix, string word)
