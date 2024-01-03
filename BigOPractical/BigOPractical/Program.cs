@@ -333,6 +333,12 @@ namespace BigOPractical
 
             // YOUR CODE GOES HERE
             // a Binary search is of logarithmic time complexity
+            // Create variables for low, mid, & high
+            // low should start at 0, high should be value
+            // mid equals (low+high) / 2
+            // Check value at the mid point
+            // if less set high = mid -1 
+            // if greater set low = mid + 1
             int pos =-1
 
             //stop the stopwatch and show the result
