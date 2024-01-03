@@ -333,7 +333,7 @@ namespace BigOPractical
 
             // YOUR CODE GOES HERE
             // a Binary search is of logarithmic time complexity
-            
+            int pos =-1
 
             //stop the stopwatch and show the result
             stopwatch.Stop();
