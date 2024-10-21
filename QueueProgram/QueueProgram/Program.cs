@@ -65,6 +65,7 @@ namespace QueueProgram
 			for (int i = 0; i < QueueSize; i++)
 			{
 				if (TheQueue[i] != null) Console.WriteLine(TheQueue[i]);
+				else Console.WriteLine("------");
 			}
 		}
 
