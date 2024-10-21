@@ -11,7 +11,7 @@ namespace QueueProgram
 		static void Main(string[] args)
 		{
 			// declare variables
-			const int MaxQueueSize = 10;
+			const int MaxQueueSize = 5;
 			int QueueSize=0;
 			int QueueStart=0, QueueEnd = -1;
 			string[] Queue = new string[MaxQueueSize];
