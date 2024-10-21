@@ -58,11 +58,11 @@ namespace QueueProgram
 			// use Queue[QueueStart]=null; to remove the value
 		}
 
-		public static void PrintQueue(ref string[] TheQueue, int QueueSize)
+		public static void PrintQueue(ref string[] TheQueue, int MaxQueueSize, int QueueSize)
 		{
 			Console.WriteLine();
 			Console.WriteLine("The current Queue:");
-			for (int i = 0; i < QueueSize; i++)
+			for (int i = 0; i < MaxQueueSize; i++)
 			{
 				if (TheQueue[i] != null) Console.WriteLine(TheQueue[i]);
 				else Console.WriteLine("------");
